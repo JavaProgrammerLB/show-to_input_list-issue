@@ -29,6 +29,13 @@ class SessionService:
         return self.sessions[session_id]
     
     
+    def set_session(self, session_id: str, input_items: list[TResponseInputItem]):
+        if session_id not in self.sessions:
+            input_items: list[TResponseInputItem] = []
+            self.sessions[session_id] = input_items
+        self.sessions[session_id] = input_items
+    
+    
     def add_session(self, session_id: str, item: TResponseInputItem):
         if session_id not in self.sessions:
             self.sessions[session_id] = []

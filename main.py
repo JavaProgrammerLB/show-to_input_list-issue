@@ -72,7 +72,7 @@ async def root(request: ChatRequest):
                     else:
                         pass
             input_items = result.to_input_list()
-            session_service.add_session(request.sessionId, input_items)
+            session_service.set_session(request.sessionId, input_items)
                     
         except Exception as e:             
             error_info = traceback.format_exc()
